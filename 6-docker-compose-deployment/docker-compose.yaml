@@ -1,0 +1,48 @@
+# Ref: https://docs.docker.com/compose/compose-application-model/
+# Ref: https://docs.docker.com/compose/compose-file/05-services/
+version: '3.8'
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    volumes:
+      - data:/data/db
+    # environment: # to use the key-value ENV pairs in the line
+    #   MONGO_INITDB_ROOT_USERNAME: vamsi
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+    env_file: # to pass the env in the variable
+      - ./env/mongo.env
+  
+  backend:
+    container_name: backend
+    build: ./backend
+    # build: 
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    #   args:
+          # some-args: 1
+    ports:
+      - '80:80'
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+  frontend: 
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true      
+    depends_on:
+      - backend
+
+volumes:
+  data:
+  logs:
