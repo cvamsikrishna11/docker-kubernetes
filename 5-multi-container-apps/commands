@@ -1,0 +1,11 @@
+docker build . -t goals-react
+docker build . -t goals-node
+docker run --name mongodb -d --rm --network goals -v data:/data/db -e MONGO_INITDB_ROOT_USERNAME=vamsi -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+docker run --name goals-backend -d --rm --network goals -p 80:80 goals-node:latest
+docker run --name goals-frontend --network goals -d --rm -p 3000:3000 goals-react:latest
+
+
+docker run --name goals-backend -v "/Users/vamsichunduru/Documents/Vamsi/learning/docker&kubernetes/5-multi-container-apps/multi-01-starting-setup/backend/:/app" -v logs:/app/logs -v /app/node_modules -d --rm --network goals -p 80:80 goals-node:latest
+
+
+docker run --name goals-backend -v "/Users/vamsichunduru/Documents/Vamsi/learning/docker&kubernetes/5-multi-container-apps/multi-01-starting-setup/backend/:/app" -v logs:/app/logs -v /app/node_modules -e MONGO_DB_USERNAME=vamsi -e MONGO_DB_PASSWORD=secret -d --rm --network goals -p 80:80 goals-node:latest
