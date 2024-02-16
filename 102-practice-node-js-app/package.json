@@ -1,0 +1,12 @@
+{
+  "name": "node-js-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "Vamsi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "1.19.0"
+  }
+}
