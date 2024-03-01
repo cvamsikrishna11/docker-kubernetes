@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    volumes:
+      - mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: Admin12345
+    networks:
+      - app-network
+
+  flask-app:
+    build: .
+    container_name: flask-app
+    ports:
+      - "5001:5000"
+    depends_on:
+      - mongo
+    volumes:
+      - flask-logs:/app/logs
+    networks:
+      - app-network
+
+volumes:
+  mongodb-data:
+  flask-logs:
+
+networks:
+  app-network:
