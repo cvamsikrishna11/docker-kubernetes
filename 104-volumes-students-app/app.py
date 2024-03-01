@@ -11,7 +11,8 @@ if not os.path.exists('logs'):
 logging.basicConfig(filename='logs/log-file.log', level=logging.DEBUG)
 
 # Connect to MongoDB - Adjust as needed
-client = MongoClient('mongodb://admin:Admin12345@172.17.0.2:27017/')
+# client = MongoClient('mongodb://admin:Admin12345@172.17.0.2:27017/')
+client = MongoClient('mongodb://admin:Admin12345@mongo:27017/')
 db = client.course_enrollments
 
 @app.route('/')
