@@ -1,4 +1,5 @@
 version: '3.8'
+name: students-app
 services:
   mongo:
     image: mongo
