@@ -7,4 +7,4 @@ spec:
   - name: nginx-container
     image: nginx
     # image: registry.hub.docker.com/library/nginx
-    # image: public.ecr.aws/nginx/nginx    
+    # image: public.ecr.aws/nginx/nginx 
