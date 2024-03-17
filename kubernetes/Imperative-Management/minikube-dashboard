@@ -1,0 +1,7 @@
+# Kubectl Exposing kubectl dashboard external
+(but only for learning purpose shouldn't be done in real env)
+
+1. On tab 1 minikube dashboard --url
+2. On tab 2 kubectl proxy --address='0.0.0.0' --disable-filter=true
+3. Adjust EC2 SG with 8081 our home IP
+4. Acccess INSTANCE-PUBLIC-IP:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/configmap?namespace=default

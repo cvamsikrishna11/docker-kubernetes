@@ -12,7 +12,7 @@ kubectl port-forward --address 0.0.0.0 pod/nginx 3001:80
 # Note: By default, without the --address flag, kubectl port-forward binds to 127.0.0.1 (localhost), which means the service can only be accessed locally from the host machine. Using --address 0.0.0.0 changes this behavior, allowing external access. 
 
 # To run on background
-nohup kubectl port-forward --address 0.0.0.0 nginx 3001:80 > /dev/null 2>&1 &
+nohup kubectl port-forward --address 0.0.0.0 pod/nginx 3001:80 > /dev/null 2>&1 &
 
 
 # To check logs of a pod with name
@@ -31,8 +31,11 @@ Now reload the page, to see the changes!
 
 # Come out of pod/container by typing exit and hit enter
 
-# Terminating the pod directly with name
+# Terminating the pod directly with name (also check if its restarting)
 kubectl delete pod nginx
 
 # Terminating the pod by applying delete action on the manifest file
 kubectl delete -f nginx.yaml
+
+# To get all events in the environment
+kubectl get eventss

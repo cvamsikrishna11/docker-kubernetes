@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: facebook-deployment
+spec:
+  strategy:
+     rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 3
+  selector:
+    matchLabels:
+      app: facebook-pods
+  template:
+    metadata:
+      labels:
+        app: facebook-pods
+    spec:
+      containers:
+      - image: vamsichunduru/facebook-practice:v2
+        name: facebook-container
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
