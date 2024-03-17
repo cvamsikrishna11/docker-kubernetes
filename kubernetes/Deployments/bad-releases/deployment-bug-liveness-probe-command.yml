@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: facebook-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: facebook-pods
+  template:
+    metadata:
+      labels:
+        app: facebook-pods
+    spec:
+      containers:
+      - image: vamsichunduru/facebook-practice:bug
+        name: facebook-container
+        imagePullPolicy: Always        
+        ports:
+        - containerPort: 8080
+        readinessProbe: # New readiness probe
+          periodSeconds: 1
+          successThreshold: 5
+          httpGet:
+            path: /
+            port: 8080
+        livenessProbe:
+          exec:
+            command:
+              - check_health.sh                
