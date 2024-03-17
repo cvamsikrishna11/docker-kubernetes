@@ -1,8 +1,11 @@
-# to create a new deployment with image vamsichunduru007/node-app:v1.0
+# To run pod
+kubectl run nginx --image=nginx
+
+# To create a new deployment with image vamsichunduru007/node-app:v1.0
 kubectl create deployment node-app --image=vamsichunduru007/node-app:v1.0
 
 # to create a new deployment with image nginx
-kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx-deployment --image=nginx
 
 # Kubectl Exposing kubectl dashboard external
 (but only for learning purpose shouldn't be done in real env)
