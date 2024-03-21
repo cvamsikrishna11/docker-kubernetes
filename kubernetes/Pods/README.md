@@ -7,6 +7,9 @@ kubectl apply -f nginx.yml
 # To check running pods
 kubectl get pods
 
+# To check running pods with wider details
+kubectl get pods -o wide
+
 # To port-forward the traffic to pod 
 kubectl port-forward --address 0.0.0.0 pod/nginx 3001:80
 # Note: By default, without the --address flag, kubectl port-forward binds to 127.0.0.1 (localhost), which means the service can only be accessed locally from the host machine. Using --address 0.0.0.0 changes this behavior, allowing external access. 
