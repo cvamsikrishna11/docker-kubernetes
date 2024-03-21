@@ -18,7 +18,7 @@ kubectl get deloyments
 
 # To check the pods
 kubectl get pods
-
+kubectl get all
 # To desribe the deployment
 kubectl describe deployment facebook-deployment
 

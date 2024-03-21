@@ -5,7 +5,7 @@ metadata:
 spec:
   strategy:
      rollingUpdate:
-      maxSurge: 1
+      maxSurge: 2
       maxUnavailable: 1
   replicas: 3
   selector:
