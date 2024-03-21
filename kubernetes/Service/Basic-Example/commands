@@ -1,0 +1,8 @@
+
+kubectl apply -f service.yml
+
+kubectl get service hellok8s-svc
+
+kubectl apply -f deployment.yml
+
+http://localhost:30001

@@ -1,0 +1,5 @@
+apiVersion: # what version of kubernetes API are we using. Ex: v1
+kind: # what kind of kubernetes object we are trying to create. ex
+metadata: # labels about the object and its a dictionary type
+
+spec: #depend on the object we provide properties of the object and various based on the object
