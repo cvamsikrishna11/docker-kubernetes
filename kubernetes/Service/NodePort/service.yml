@@ -8,5 +8,4 @@ spec:
     - port: 80
       nodePort: 30008 # (Range is 30000-32767)
   selector:
-    matchLabels:
       app: web-app
