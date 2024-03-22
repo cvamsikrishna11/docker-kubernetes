@@ -13,7 +13,7 @@ spec:
         app: web-app
     spec:
       containers:
-      - image: vamsichunduru/web-app:bug
+      - image: vamsichunduru/web-app:v1
         name: web-app-container
         imagePullPolicy: Always        
         ports:
