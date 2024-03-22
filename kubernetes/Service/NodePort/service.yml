@@ -5,8 +5,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - targetPort: 80
-      port: 80
+    - port: 80
       nodePort: 30008 # (Range is 30000-32767)
   selector:
     matchLabels:
