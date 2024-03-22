@@ -56,12 +56,3 @@ kubectl apply -f deployment-roll-out-rate.yml
 
 # Recreate strategy
 kubectl apply -f deployment-recreate.yml
-
-# Rollback or Undo the deployment
-kubectl apply -f deployment-bug.yml
-kubectl rollout undo deployment facebook-deployment
-
-# Readiness Probe
-kubectl apply -f deployment-bug-readiness-probe.yml
-kubectl get pods
-kubectl logs facebook-deployment-566bd9db44-kbfsj
